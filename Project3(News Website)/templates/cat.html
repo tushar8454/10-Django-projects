@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+ {% block content %}
+ 
+ {% for cat_page in cat%}
+       <p>
+      <a href="{% url 'cat_page' cat_page.id %}" > {{cat_page.category}}</a>
+       </p>
+        {%endfor%}
+ 
+ 
+ {% endblock content %}

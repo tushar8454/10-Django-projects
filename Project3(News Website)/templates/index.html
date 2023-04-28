@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<a href="{% url 'home' %}">Home</a>
+<a href="{% url 'cat' %}">cateogry</a>
+
+
+{% comment %} <a href="{% url 'single_news' %}">single_news</a>
+<a href="{% url 'contact' %}">Contact</a> {% endcomment %}
+
+<br><br><br>
+
+{% for article in blog %}
+<div>
+    <a href="{% url 'article' article.id %}">
+    <h3>title-{{article.title}}</h3>
+    <span>date- {{article.date}}</span>
+    <span>[author- {{article.author}}]</span>
+    <p>discription-- {{article.discription}}</p>
+    </a>
+</div>
+
+{% endfor %}
+
+
+{% endblock content %}
+
+
+
