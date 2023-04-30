@@ -4,11 +4,16 @@
 <h1>{{article.title}}<h1>
     <h3>Crated At {{article.createdAt}}<h3>
         <h3>published by:
+
+
         {% for author in article.authors.all%}
         <a href="{% url 'author' author.id%}">
         {{author}},
         </a>
         {%endfor%}
+
+
+        
             <h3>
  
             <p>{{article.content}}</p>
