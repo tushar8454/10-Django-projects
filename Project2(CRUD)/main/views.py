@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 
+from .models import Employees,Car
+
 from main import models
 
 # Create your views here.
@@ -43,20 +45,20 @@ def update(request,id):
         
         emp=Employees(
             id = id,
-            name=name,
-            email=email,
-            address=address,
-            phone=phone,
+            name = name,
+            email = email,
+            address = address,
+            phone = phone,
         ) 
         emp.save()
         return redirect('index')
 
 
 
-    return render(request,views.index)
+    return redirect(request,'index.html')
 
 def delete(request,id):
-    emp=models.Employees.objects.filter(id=id),delete()
+    emp=models.Employees.objects.filter(id=id).delete()
     context={
         'emp':emp
     }
