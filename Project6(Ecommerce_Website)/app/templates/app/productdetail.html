@@ -1,0 +1,51 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-6 text-center align-self-center">
+   <img src="{{product.product_image.url}}" alt="" class="img-fluid img-thumbnail">
+  </div>
+  <div class="col-sm-5 offset-sm-1">
+   <h2>Product Title:{{product.title}}</h2>
+   <hr>
+   <p>{{product.description}}</p> <br>
+   <h4>Rs {{product.discount_price}}<small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></h4> <br>
+   <a href="{% url 'add-to-cart' %}" class="btn btn-primary shadow px-5 py-2">Add to Cart</a>
+   <a href="{% url 'buy-now' %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
+
+ 
+   
+   
+
+
+   <h5 class="mt-5">Available Offers</h5>
+   <ul>
+    <li>Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit</li>
+    <li>Special Price Get extra ₹3000 off (price inclusive of discount)</li>
+    <li>No cost EMI ₹1,667/month. Standard EMI also available</li>
+    <li>Partner Offer ₹2000 Flipkart Gift Card on Every 1000th Transaction with a new Visa Debit/Credit Card</li>
+   </ul>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
+{% block banner_slider_product %}
+<br>
+<!-- 2nd Product Slider -->
+<div class="m-3">
+  <h2>ShoppingX Top Wears</h2>
+  <!-- Slider 1 -->
+  <div class="owl-carousel" id="slider1">
+ 
+    {% for t in Any %}
+   <a href="{% url 'product-detail' t.id%}" class="btn">
+    <div class="item"><img src="{{t.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{t.title}}</span><br><span class="fs-5">Rs. {{t.discount_price}}</span></div></a>
+   {% endfor %} 
+ 
+   
+  </div>
+ </div>
+ <!-- End 1st Product Slider -->
+ {% endblock banner_slider_product %}
